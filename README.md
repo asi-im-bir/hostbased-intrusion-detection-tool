@@ -1,84 +1,68 @@
 🛡️ HIDS-Toolkit — Linux Host-based Intrusion Detection System
-🔧 Author: Resource Guardians
 
-Team Members:
+## 📘 Overview
+**HIDS-Toolkit** is a Bash-based Host Intrusion Detection System (HIDS) simulation for Linux environments.  
+It monitors, detects, and reports suspicious activity using only **native system tools**, demonstrating how host-based detection can be implemented without third-party dependencies.
 
-Yuri – Resource Monitoring & Team Lead
+This project showcases real-world cybersecurity concepts such as:
+- Resource and system monitoring  
+- File integrity verification  
+- User auditing  
+- Process and network inspection  
+- Log-based threat detection  
+- Automated alerting and forensics  
 
-Sylvester – HIDS Framework & Security Modules
+## 🎯 Project Mission
+Develop a **modular, lightweight Linux HIDS** that performs:
+- Continuous host monitoring  
+- Anomaly detection  
+- Forensic logging and alerting  
+All powered by **Bash** and **cron automation**, using only built-in Linux utilities.
 
-Patrick – Log & User Monitoring
+---
 
-Asiye – Integration, Automation & Documentation
+## 🧠 Learning Goals
+This academic project was designed to strengthen:
+- Advanced Linux administration and shell scripting  
+- Modular Bash architecture design  
+- Real-time log monitoring and alerting  
+- Forensic correlation and reporting  
+- Secure configuration management  
+- Privacy-conscious system auditing  
 
-📘 Overview
+---
 
-HIDS-Toolkit is a Bash-based Host Intrusion Detection System (HIDS) simulation for Linux environments.
-It monitors, detects, and reports suspicious activity using only native system tools — showing how host-based detection can be implemented without third-party dependencies.
+## ⚙️ Core Features
 
-This project demonstrates real-world cybersecurity concepts such as resource tracking, file integrity monitoring, user auditing, process inspection, network analysis, and log-based threat detection — all automated through shell scripting.
+| **Feature** | **Description** | **Tools Used** |
+|--------------|-----------------|----------------|
+| **System Resource Monitoring** | Monitors CPU, RAM, and Disk usage; alerts on threshold breaches | `uptime`, `free -m`, `df -h` |
+| **File Integrity Monitoring (FIM)** | Detects unauthorized file changes using SHA256 hashing | `sha256sum`, `diff` |
+| **User & Group Auditing** | Detects unauthorized user/group modifications | `awk`, `diff`, `/etc/passwd` |
+| **Process & Network Scanning** | Flags suspicious processes and open ports | `ps aux`, `ss -tuln` |
+| **Log-Based Detection** | Identifies brute-force, failed logins, root access, and sudo abuse | `grep`, `/var/log/auth.log`, `/var/log/syslog` |
+| **Forensic Log Analysis** | Correlates events across multiple logs for investigations | `awk`, `grep`, `log_analyzer.sh` |
+| **Automated Alerts** | Sends (or simulates) email alerts on critical findings | `email_alert.sh`, `ssmtp` |
+| **Cron Automation** | Runs every 5 minutes for proactive detection | `cron`, `main_monitor.sh` |
 
-🎯 Project Mission
+---
 
-Build a modular, lightweight Linux HIDS that performs continuous monitoring, detects anomalies, and sends alerts — using only native Bash utilities and cron automation.
+## 🧭 HIDS Toolkit — Architecture & Logic Overview
 
-🧠 Learning Goals
+### 🔧 System Logic Diagram
+The diagram below illustrates the logical architecture of the HIDS Toolkit — how each component (cron, controller, modules, and storage) interact during system monitoring and alerting.
 
-Developed as part of a cybersecurity learning initiative to demonstrate:
+![HIDS Toolkit Logic Diagram](docs/logicoftoolkit.png)
 
-Advanced Linux administration and shell scripting
+---
 
-Modular Bash architecture design
+### 🔄 Execution Sequence Diagram
+This sequence diagram shows how the monitoring process flows:  
+from cron scheduling → to `main_monitor.sh` → to the modules → and finally to reporting and alerting.
 
-Real-time log monitoring and alerting
+![HIDS Toolkit Sequence Diagram](docs/sequencediagram.png)
 
-Forensic log correlation and analysis
-
-Automation using cron and email alerts
-
-Secure and privacy-conscious system auditing
-
-⚙️ Core Features
-
-Feature	Description	Tools Used
-System Resource Monitoring	Monitors CPU, RAM, Disk; alerts on threshold breaches	uptime, free -m, df -h
-File Integrity Monitoring (FIM)	Detects unauthorized file changes via SHA256 hashing	sha256sum, diff
-User & Group Auditing	Detects unauthorized user/group modifications	awk, diff, /etc/passwd
-Process & Network Scanning	Flags suspicious processes and open ports	ps aux, ss -tuln
-Log-Based Detection	Identifies brute-force, failed logins, root access, sudo abuse	grep, /var/log/auth.log, /var/log/syslog
-Forensic Log Analysis	Correlates events across multiple logs for investigations	awk, grep, log_analyzer.sh
-Automated Alerts	Sends (or simulates) email alerts on critical findings	email_alert.sh, ssmtp
-Cron Automation	Scheduled every 5 minutes for proactive detection	cron, main_monitor.sh
-
-📂 Repository Structure
-hids-toolkit/
-│
-├── main_monitor.sh              # Central controller script
-├── log_analyzer.sh              # Forensic analysis tool
-├── email_alert.sh               # Email notification module
-│
-├── modules/                     # Modular components
-│   ├── 10_fim.sh                # File Integrity Monitoring
-│   ├── 20_users.sh              # User/Group Auditing
-│   ├── 30_resource_monitor.sh   # Resource Monitoring (example)
-│   ├── 40_process_network.sh    # Process & Network Monitoring
-│
-├── config/
-│   ├── thresholds.conf          # Threshold limits
-│   ├── hids.conf                # Monitored dirs & ports
-│   ├── email.conf.example       # Sanitized email config
-│
-├── reports/
-│   └── sample_report.log        # Example sanitized output
-│
-├── docs/
-│   ├── INSTALLATION.md          # Setup guide
-│   └── DESIGN_OVERVIEW.md       # Architecture explanation
-│
-├── .gitignore                   # Ignore sensitive/log files
-└── LICENSE                      # MIT License
-
-🚀 Getting Started
+ Getting Started
 
 1️⃣ Clone the Repository
 
@@ -185,13 +169,9 @@ Please contact me directly for a private demonstration or code walkthrough.
 
 ⚠️ Only sanitized versions of configuration and report files are public for security reasons.
 
-🪪 License
-
-MIT License — Free to use and modify with attribution.
-
 📨 Contact
+GitHub: (https://github.com/asi-im-bir)
 
-Maintainer: <your_email@example.com>
-GitHub: https://github.com/<your-username>
 
-Project Type: Academic / Security Engineering Demonstration
+✅ Summary Statement
+HIDS-Toolkit demonstrates how native Linux tools can deliver real-time detection, forensic analysis, and compliance-aligned monitoring — bridging the gap between technical security engineering and GRC automation.
