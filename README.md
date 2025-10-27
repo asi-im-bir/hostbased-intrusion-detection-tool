@@ -39,6 +39,7 @@ Automation using cron and email alerts
 Secure and privacy-conscious system auditing
 
 ⚙️ Core Features
+
 Feature	Description	Tools Used
 System Resource Monitoring	Monitors CPU, RAM, Disk; alerts on threshold breaches	uptime, free -m, df -h
 File Integrity Monitoring (FIM)	Detects unauthorized file changes via SHA256 hashing	sha256sum, diff
@@ -48,6 +49,7 @@ Log-Based Detection	Identifies brute-force, failed logins, root access, sudo abu
 Forensic Log Analysis	Correlates events across multiple logs for investigations	awk, grep, log_analyzer.sh
 Automated Alerts	Sends (or simulates) email alerts on critical findings	email_alert.sh, ssmtp
 Cron Automation	Scheduled every 5 minutes for proactive detection	cron, main_monitor.sh
+
 📂 Repository Structure
 hids-toolkit/
 │
